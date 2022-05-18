@@ -1,0 +1,35 @@
+openapi: '3.0.2'
+info:
+  title: NodeJS Base Project
+  version: '1.0'
+paths:
+  /health:
+    get:
+      summary: Check server status!
+      responses:
+        '200':
+          description: Server Up
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  uptime:
+                    type: number
+                  message:
+                    type: string
+                  date:
+                    type: integer
+  /hello:
+    get:
+      summary: Hello World!
+      responses:
+        '200':
+          description: Server Up
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
