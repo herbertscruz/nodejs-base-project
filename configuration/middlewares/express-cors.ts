@@ -2,9 +2,9 @@ import { Router } from 'express';
 import cors from 'cors';
 
 export function expressCors(): Router {
-    const router = Router();
+  const router = Router();
 
-    router.use(cors());
+  router.use(cors());
 
-    return router;
+  return router;
 }

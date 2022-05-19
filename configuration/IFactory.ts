@@ -1,5 +1,5 @@
-import { Router } from "express";
+import { Router } from 'express';
 
 export interface IFactory {
-    createResource: () => Router;
+  createResource: () => Router;
 }
