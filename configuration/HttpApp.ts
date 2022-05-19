@@ -1,9 +1,10 @@
+require('express-async-errors');
 import { IApp, IAppOptions } from "./IApp";
-import express from 'express';
+import express, { Application } from 'express';
 
 export class HttpApp implements IApp {
 
-    private app;
+    private app: Application;
 
     constructor(readonly options: IAppOptions) {
         this.app = express();
@@ -16,7 +17,7 @@ export class HttpApp implements IApp {
         this.options.beforeMiddlewares?.forEach(middleware => this.app.use(middleware));
         this.options.factories?.forEach(factory => this.app.use(factory.createResource()));
         this.options.afterMiddlewares?.forEach(middleware => this.app.use(middleware));
-        this.options.errorHandlers?.forEach(middleware => this.app.use(middleware));
+        this.options.errorHandlers?.forEach(errorHandler => this.app.use(errorHandler));
     }
 
     listen(port: number) {
