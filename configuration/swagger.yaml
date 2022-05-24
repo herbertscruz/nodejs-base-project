@@ -5,10 +5,10 @@ info:
 paths:
   /health:
     get:
-      summary: Check server status!
+      summary: Check server status
       responses:
         '200':
-          description: Server Up
+          description: Server Up!
           content:
             application/json:
               schema:
@@ -22,10 +22,10 @@ paths:
                     type: integer
   /hello:
     get:
-      summary: Hello World!
+      summary: Teste
       responses:
         '200':
-          description: Server Up
+          description: Hello World!
           content:
             application/json:
               schema:

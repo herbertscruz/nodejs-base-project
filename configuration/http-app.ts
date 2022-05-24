@@ -1,8 +1,19 @@
 require('express-async-errors');
-import { IApp, IAppOptions } from './IApp';
-import express, { Application } from 'express';
+import express, {
+  Application,
+  ErrorRequestHandler,
+  RequestHandler,
+  Router,
+} from 'express';
 
-export class HttpApp implements IApp {
+export interface IAppOptions {
+  beforeMiddlewares?: RequestHandler[];
+  routers: Router[];
+  afterMiddlewares?: RequestHandler[];
+  errorHandlers?: ErrorRequestHandler[];
+}
+
+export class HttpApp {
   private app: Application;
 
   constructor(readonly options: IAppOptions) {
@@ -16,9 +27,7 @@ export class HttpApp implements IApp {
     this.options.beforeMiddlewares?.forEach((middleware) =>
       this.app.use(middleware)
     );
-    this.options.factories?.forEach((factory) =>
-      this.app.use(factory.createResource())
-    );
+    this.options.routers?.forEach((router) => this.app.use(router));
     this.options.afterMiddlewares?.forEach((middleware) =>
       this.app.use(middleware)
     );
@@ -27,7 +36,7 @@ export class HttpApp implements IApp {
     );
   }
 
-  listen(port: number) {
+  public listen(port: number) {
     this.app.listen(port, () => console.log('Listen port %s', port));
   }
 }
