@@ -45,7 +45,6 @@
     "*.ts": [
       "eslint . --cache --fix --max-warnings 0 --ext .ts",
       "prettier --write .",
-      "yarn test",
       "git add ."
     ]
   }
