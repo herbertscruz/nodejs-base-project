@@ -5,6 +5,7 @@ import express, {
   RequestHandler,
   Router,
 } from 'express';
+import { Server } from 'http';
 
 export interface IAppOptions {
   beforeMiddlewares?: RequestHandler[];
@@ -36,7 +37,7 @@ export class HttpApp {
     );
   }
 
-  public listen(port: number) {
-    this.app.listen(port, () => console.log('Listen port %s', port));
+  public listen(port: number): Server {
+    return this.app.listen(port, () => console.log('Listen port %s', port));
   }
 }

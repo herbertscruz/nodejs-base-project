@@ -4,7 +4,7 @@ export class HealthResource {
   async health(req: Request, res: Response) {
     const data = {
       uptime: process.uptime(),
-      message: 'Ok',
+      message: 'Server Up!',
       date: new Date().getTime(),
     };
 
