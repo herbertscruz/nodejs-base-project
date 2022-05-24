@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { HealthResource } from './health.resource';
+import HealthResource from './health.resource';
 
 export function healthFactory(): Router {
   const resource = new HealthResource();

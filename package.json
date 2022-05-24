@@ -2,12 +2,12 @@
   "name": "nodejs-base-project",
   "version": "1.0.0",
   "description": "Base project to start an application with NodeJS",
-  "main": "app.ts",
+  "main": "src/app.ts",
   "author": "Herberts Cruz <herbertscruz@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "ts-node app.ts",
-    "dev": "ts-node-dev app.ts",
+    "start": "ts-node src/app.ts",
+    "dev": "ts-node-dev src/app.ts",
     "test": "jest",
     "prepare": "husky install"
   },

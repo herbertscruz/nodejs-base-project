@@ -20,16 +20,16 @@ paths:
                     type: string
                   date:
                     type: integer
-  /hello:
+  /balances:
     get:
-      summary: Teste
+      summary: Get balance
       responses:
         '200':
-          description: Hello World!
+          description: Get balance!
           content:
             application/json:
               schema:
                 type: object
                 properties:
-                  message:
-                    type: string
+                  total:
+                    type: number

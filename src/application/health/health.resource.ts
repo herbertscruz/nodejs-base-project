@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 
-export class HealthResource {
+export default class HealthResource {
   async health(req: Request, res: Response) {
     const data = {
       uptime: process.uptime(),

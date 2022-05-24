@@ -7,7 +7,12 @@ import * as OpenApiValidator from 'express-openapi-validator';
 
 export function swaggerFactory(): Router {
   const router = Router();
-  const filePath = path.join(process.cwd(), 'configuration', 'swagger.yaml');
+  const filePath = path.join(
+    process.cwd(),
+    'src',
+    'configuration',
+    'swagger.yaml'
+  );
   const swaggerDocument = YAML.load(readFileSync(filePath, 'utf8'));
 
   router.use('/api-docs', swaggerUi.serve);
